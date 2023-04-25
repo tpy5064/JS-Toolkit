@@ -32,17 +32,28 @@ const XHRPage = () => {
   }
 
   function makeCall() {
-    console.log( typeof code)
-    fetch(apiUrl, {
+    console.log(code.length);
+
+    // Check if the request has a body
+    const hasBody = method !== "GET" && method !== "HEAD" && code.length > 0;
+
+    // Create the fetch options object
+    const fetchOptions = {
       method: method,
       headers: {
         "Content-Type": "application/json",
-        
       },
-      body: code.length > 0 ? JSON.stringify(JSON.parse(code)) : "",
-    })
+    };
+
+    // Add the body to the fetch options if necessary
+    if (hasBody) {
+      fetchOptions.body = JSON.stringify(JSON.parse(code));
+    }
+
+    fetch(apiUrl, fetchOptions)
       .then((response) => response.json())
-      .then((data) => setFetchRes(JSON.stringify(data)))
+      .then((data) => {setFetchRes(JSON.stringify(data));
+      console.log(data)})
       .catch((err) => console.log(err));
   }
 
@@ -135,7 +146,7 @@ const XHRPage = () => {
               margin: "1rem",
               border: "1px solid white",
               overflowY: "auto",
-              maxHeight: "500px"
+              maxHeight: "500px",
             }}
           />
         </div>

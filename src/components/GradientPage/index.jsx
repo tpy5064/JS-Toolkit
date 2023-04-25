@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { SketchPicker } from "react-color";
 import Navbar from "../Navbar";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 
 const GradientPage = () => {
   const canvasRef = useRef(null);
@@ -133,9 +134,21 @@ const GradientPage = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white w-2/3 h-16 mt-5 flex justify-start items-center p-5 text-lg font-medium">
-          <span>{`background: linear-gradient(90deg, ${stop1Hex} ${stop1Percent}%, ${stop2Hex} ${stop2Percent}%);`}</span>
-        </div>
+        <CodeEditor
+          value={`background: linear-gradient(90deg, ${stop1Hex} ${stop1Percent}%, ${stop2Hex} ${stop2Percent}%);`}
+          language="css"
+          padding={8}
+          data-color-mode="dark"
+          style={{
+            fontSize: 14,
+            backgroundColor: "rgb(22, 27, 34)",
+            fontFamily:
+              "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+            width: "565px",
+            margin: "1rem",
+            border: "1px solid white",
+          }}
+        />
       </div>
     </div>
   );
