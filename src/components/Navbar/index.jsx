@@ -2,13 +2,14 @@ import React from "react";
 import { FaTools } from "react-icons/fa";
 import { MdGradient } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { VscJson } from "react-icons/vsc";
 
 const Navbar = () => {
   return (
     <div
       className="fixed top-0 left-0 h-screen w-52 m-0 
     flex flex-col bg-blue-500 text-white shadow-lg justify-start 
-    items-center z-10"
+    items-center z-50"
     >
       <Link
         to="/"
@@ -22,6 +23,11 @@ const Navbar = () => {
         icon={<MdGradient size="32" />}
         text={"Gradient Generator"}
         dir={"/gradient"}
+      />
+      <SideBarIcon
+        icon={<VscJson size="32" />}
+        text={"Fetch Boilerplate"}
+        dir={"/xhrBoilerplate"}
       />
     </div>
   );

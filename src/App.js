@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing";
 import GradientPage from "./components/GradientPage";
+import XHRPage from "./components/XHRPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/gradient" element={<GradientPage />} />
+        <Route path="/xhrBoilerplate" element={<XHRPage />} />
       </Routes>
     </BrowserRouter>
   );
